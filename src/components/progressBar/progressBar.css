@@ -1,0 +1,29 @@
+.progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.progress label {
+    font-size: 2rem;
+    background: #EDF1FC;
+    color: #2351DC;
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.progress-bar span{
+    font-weight: 600;
+}
+
+@media screen and (max-width:580px) {
+    .progress-bar{
+        width: 90%;
+    }
+}

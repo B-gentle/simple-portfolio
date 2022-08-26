@@ -1,0 +1,46 @@
+.my-skills{
+    padding: 4.2rem 0 4.3rem 7.5rem;
+    line-height: 1;
+}
+
+.my-skills > h2{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 0;
+}
+
+.my-skills > span:nth-child(2){
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 0.2;
+    
+}
+
+.progress-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-top: 1.5rem;
+}
+
+@media screen and (max-width:580px) {
+    .my-skills{
+        padding: 1rem;
+    }
+
+    .my-skills > h2{
+        text-align: center;
+    }
+
+    .my-skills > span:nth-child(2){
+        display: block;
+        text-align: center;
+    }
+
+
+    .progress-wrapper{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}

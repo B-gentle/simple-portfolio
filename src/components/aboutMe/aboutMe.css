@@ -1,0 +1,29 @@
+.about-me{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 110px 410px 110px;
+    background-color: #F6F8FE;
+    text-align: center;
+}
+
+.about-me h2{
+    font-weight: 700;
+    font-size: 42px;
+}
+
+.about-me span{
+    margin-top: -30px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #4D4D4D;
+
+}
+
+@media screen and (max-width:580px) {
+    .about-me{
+        padding: 1rem;
+    }
+}

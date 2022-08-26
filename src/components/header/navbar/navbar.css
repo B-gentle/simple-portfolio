@@ -1,0 +1,60 @@
+nav div{
+    display: flex;
+    align-items: center;
+}
+
+nav div h2{
+    font-weight: 800;
+    font-size: 1.88rem;
+}
+
+nav div ul{
+    display: flex;    
+}
+
+nav div ul li{
+    list-style: none;
+    margin: 1.5rem;
+    font-weight: 400;
+    font-size: 0.94rem;
+}
+
+nav div span{
+    display: none;
+}
+
+@media screen and (max-width:580px) {
+
+    nav div{
+        justify-content: space-between;
+    }
+    nav div ul{
+        position: absolute;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content:flex-start;
+        top: -580px;
+        left: 30%;
+        background-color: rgba(35, 81, 220, 0.6);
+        transition: all 2s ease;
+        height: 60vh;
+        padding: 1rem;
+        color: #FFFFFF;
+    }
+
+    nav div ul li{
+        text-align: center;
+        
+    }
+
+    nav div ul.drop{
+        top: 67px;
+        left: 30%;
+        transition: all 2.5s ease;
+    }
+
+    nav div span{
+        display: flex;
+        font-size: 2rem;
+    }
+}

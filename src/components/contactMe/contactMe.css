@@ -1,0 +1,151 @@
+.contact-me {
+    display: flex;
+    padding-left: 7.5rem;
+    line-height: 2;
+}
+
+.get-in-touch {
+    padding-top: 140px;
+    padding-bottom: 120px;
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+}
+
+.get-in-touch>h2 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 0.1;
+}
+
+.get-in-touch>small {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 0.5;
+}
+
+.contact-social-links {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0 2rem;
+}
+
+.contact-social-links a {
+    color: #2351DC;
+    border: 1px solid #2351DC;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem;
+}
+
+.get-in-touch span:nth-child(4),
+.get-in-touch span:nth-child(5) {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.get-in-touch span:nth-child(4) small,
+.get-in-touch span:nth-child(5) small {
+    display: flex;
+    flex-direction: column;
+}
+
+.get-in-touch span:nth-child(4) small address,
+.get-in-touch span:nth-child(5) small a {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #000000;
+    text-decoration: none;
+}
+
+.get-in-touch .gmail,
+.whatsapp {
+    color: #2351DC;
+    font-size: 2rem;
+}
+
+.contact-form {
+    background-color: #1C41B0;
+    flex-basis: 50%;
+    padding: 100px 10px 50px 82px;
+
+}
+
+.contact-form h3 {
+    color: #FFFFFFB2;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1;
+
+}
+
+.contact-form h2 {
+    color: rgba(255, 255, 255);
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.send-message-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.send-message-form input[type="text"],
+.send-message-form textarea {
+    border: none;
+    padding: 1rem;
+    padding-left: 0;
+    width: 50%;
+    background: none;
+    border-bottom: 0.6px solid #FFFFFF;
+}
+
+.send-message-form input[type="text"]::placeholder,
+.send-message-form textarea::placeholder {
+    color: #FFFFFF;
+}
+
+.send-message-form input[type='submit'] {
+    width: 30%;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #2351DC;
+    padding: 1rem;
+}
+
+@media screen and (max-width:580px) {
+    .contact-me {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .get-in-touch {
+        padding: 2rem 1rem 1rem;
+    }
+
+    .get-in-touch>small {
+        line-height: 1.5;
+    }
+
+    .contact-form {
+        padding: 100px 10px 50px;
+    }
+
+    .send-message-form input[type="text"],
+.send-message-form textarea {
+    width: 80%;
+}
+
+.send-message-form input[type="submit"]{
+    width: 50%;
+}
+
+   
+}

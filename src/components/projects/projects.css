@@ -1,0 +1,54 @@
+.projects {
+    padding: 100px 110px 100px 110px;
+}
+
+.projects>h2 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1;
+}
+
+.projects>p {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.project-slider{
+    width: 100%;
+}
+
+.project-slider .swiper-slider{
+    width: 80%;
+    border: 2px solid red;
+}
+
+.project-frames {
+    width: 20rem;
+    height: 20rem;
+    border: none;
+}
+
+@media screen and (max-width:580px) {
+    .projects{
+        padding: 20px 1rem 100px 1rem;
+    }
+
+    .projects>h2 {
+        font-size: 38px;
+    }
+
+    .project-slider .swiper-slider{
+        width: 90%;
+        border: 2px solid red;
+        overflow: visible!important;
+    }
+    
+    .project-frames {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .project-frames {
+        width: 100%;
+    }
+}

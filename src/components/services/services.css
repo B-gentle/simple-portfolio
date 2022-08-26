@@ -1,0 +1,31 @@
+.services{
+    padding: 1.5rem 0 3rem 7.5rem;
+    padding-top: 1rem;
+    background-color: #FBFCFE;
+    
+
+}
+.services div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.services div .thumb{
+    width: 30%;
+}
+
+@media screen and (max-width:580px) {
+   .services{
+    padding: 1rem;
+    padding-bottom: 2.5rem;
+    margin: auto;
+    text-align: center;
+   } 
+
+   .services div .thumb{
+       width: 100%;
+       margin: auto;
+       text-align: center;
+   }
+}

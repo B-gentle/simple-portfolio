@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: manrope, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: manrope, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: manrope;
+  src: url(fonts/static/Manrope-Regular.ttf);
+}
