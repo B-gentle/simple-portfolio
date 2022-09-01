@@ -14,6 +14,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.header .blue-header img{
+    transform: scale(1.2);
+    position: absolute;
+    top: 1px;
 }
 
 .introduction {
@@ -74,6 +81,12 @@
         width: 90%;
         align-items: center;
         margin: auto;
+    }
+
+    .header .blue-header img{
+        transform: scale(1);
+        position: static;
+        top: -10px;
     }
 
     .introduction {

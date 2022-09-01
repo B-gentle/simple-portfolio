@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './contactMe.css';
+import emailjs from '@emailjs/browser';
 import { FaTwitter, FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 
 const ContactMe = () => {
+    const form = useRef();
+    const [done, setDone] = useState(false)
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY)
+      .then((result) => {
+          console.log(result.text);
+          setDone(true)
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
     return (
         <div className='contact-me'>
             <div className='get-in-touch'>
@@ -32,11 +48,12 @@ const ContactMe = () => {
             <div className='contact-form'>
                 <h3>Need A Service?</h3>
                 <h2>Send A Message</h2>
-                <form className='send-message-form'>
-                    <input type='text' placeholder='Enter Full Name'/>
-                    <input type='text' placeholder='Enter email address'/>
-                    <textarea placeholder='Write A Message'></textarea>
-                    <input type='submit' value='Send Message'/>
+                <form className='send-message-form' ref={form} onSubmit={sendEmail}>
+                    <input type='text' placeholder='Enter Full Name' name="from_name" required/>
+                    <input type='text' placeholder='Enter email address' name='from_name' required/>
+                    <textarea placeholder='Write A Message' name='message' required></textarea>
+                    <input type='submit' value={ done? 'Sent':'Send Message'} style={{backgroundColor: done && "green",
+                color: done && "#FFFFFF"}}/>
                 </form>
             </div>
         </div>

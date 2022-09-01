@@ -16,7 +16,7 @@ const Footer = () => {
                 <a href="https://www.linkedin.com/in/bright-eyo-48a29a163/" target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
                 <a href="https://github.com/B-gentle" target="_blank" rel="noreferrer"><FaGithub /></a>
             </span>
-            <p>Copyright &copy; {date} | All Rights Reserved</p>
+            <p>BeeTech &copy; {date} | All Rights Reserved</p>
         </footer>
     )
 }
