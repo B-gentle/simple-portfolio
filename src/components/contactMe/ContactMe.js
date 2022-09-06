@@ -6,17 +6,28 @@ import { SiGmail } from 'react-icons/si';
 
 const ContactMe = () => {
     const form = useRef();
-    const [done, setDone] = useState(false)
+    const [done, setDone] = useState(false);
+    const [isPending, setIsPending] = useState(false);
+    const [error, setError] = useState(null)
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setIsPending(true)
 
     emailjs.sendForm(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY)
       .then((result) => {
-          console.log(result.text);
-          setDone(true)
+          if(!result){
+              throw Error(error.text)
+          }
+          console.log(result);
+          setDone(true);
+          setIsPending(false)
+          setError(false)
+          form.reset()
       }, (error) => {
           console.log(error.text);
+          setIsPending(false)
+          setError(error.text)
       });
   };
 
@@ -52,8 +63,10 @@ const ContactMe = () => {
                     <input type='text' placeholder='Enter Full Name' name="from_name" required/>
                     <input type='text' placeholder='Enter email address' name='from_name' required/>
                     <textarea placeholder='Write A Message' name='message' required></textarea>
-                    <input type='submit' value={ done? 'Sent':'Send Message'} style={{backgroundColor: done && "green",
-                color: done && "#FFFFFF"}}/>
+                    { isPending && <input type='submit' value='Sending' disabled/> }
+                    { !isPending && <input type='submit' value={ done? 'Sent':'Send Message'} style={{backgroundColor: done && "green", color: done && "#FFFFFF"}}/>}
+                    { error && <div>{error}</div>}
+                    
                 </form>
             </div>
         </div>
