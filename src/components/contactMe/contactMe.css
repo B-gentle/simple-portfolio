@@ -111,8 +111,8 @@
     color: #FFFFFF;
 }
 
-.send-message-form input[type='submit'] {
-    width: 30%;
+.send-message-form button[type='submit'] {
+    width: 50%;
     background-color: #FFFFFF;
     border: 1px solid #FFFFFF;
     border-radius: 12px;

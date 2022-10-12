@@ -1,35 +1,60 @@
 import React, { useRef, useState } from 'react';
-import './contactMe.css';
+import { Button, Snackbar } from '@mui/material';
 import emailjs from '@emailjs/browser';
 import { FaTwitter, FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
+import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5';
+import { MdError } from 'react-icons/md';
+import './contactMe.css';
 
 const ContactMe = () => {
     const form = useRef();
     const [done, setDone] = useState(false);
     const [isPending, setIsPending] = useState(false);
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
+    const [open, setOpen] = useState(false)
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setIsPending(true)
+    const buttonStyles = {
+        width: '100%',
+        fontWeight: '600',
+        fontSize: '1rem',
+        padding: '10px 1rem',
+        borderRadius: '12px',
+        textTransform: 'capitalize'
+    }
 
-    emailjs.sendForm(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY)
-      .then((result) => {
-          if(!result){
-              throw Error(error.text)
-          }
-          console.log(result);
-          setDone(true);
-          setIsPending(false)
-          setError(false)
-          form.reset()
-      }, (error) => {
-          console.log(error.text);
-          setIsPending(false)
-          setError(error.text)
-      });
-  };
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setOpen(false);
+      };
+    
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setIsPending(true)
+
+        emailjs.sendForm(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY)
+            .then((result) => {
+                console.log(result);
+                setDone(true);
+                setIsPending(false)
+                setError(false)
+                setOpen(true);
+                form.current.reset()
+            }, (error) => {
+                setIsPending(false)
+                setError(true)
+                setOpen(true);
+                setTimeout(()=>{
+                    form.current.reset()  
+                },8000)
+                console.log(error);
+
+            });
+    };
 
     return (
         <div className='contact-me'>
@@ -60,16 +85,25 @@ const ContactMe = () => {
                 <h3>Need A Service?</h3>
                 <h2>Send A Message</h2>
                 <form className='send-message-form' ref={form} onSubmit={sendEmail}>
-                    <input type='text' placeholder='Enter Full Name' name="from_name" required/>
-                    <input type='text' placeholder='Enter email address' name='from_name' required/>
+                    <input type='text' placeholder='Enter Full Name' name="from_name" required />
+                    <input type='text' placeholder='Enter email address' name='from_name' required />
                     <textarea placeholder='Write A Message' name='message' required></textarea>
-                    { isPending && <input type='submit' value='Sending' disabled/> }
-                    { !isPending && <input type='submit' value={ done? 'Sent':'Send Message'} style={{backgroundColor: done && "green", color: done && "#FFFFFF"}}/>}
-                    { error && <div>{error}</div>}
-                    
+                     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} sx={{position: 'relative', width: '50%'}}>
+                    <Button
+                        variant="contained"
+                        color={error ? "error" : done ? "success" : "info"}
+                        endIcon={error ? <MdError /> : done ? <IoCheckmarkDoneCircleOutline /> : <span>...</span>}
+                        sx={buttonStyles}
+                    >
+                        {done ? 'Sent' : error ? 'Error Sending' : "Sending"}
+                    </Button>
+                    </Snackbar>
+                    <button type='submit'>{isPending ? 'Sending...' : 'Send Message'}</button>
+
+
                 </form>
             </div>
-        </div>
+        </div >
     )
 }
 
