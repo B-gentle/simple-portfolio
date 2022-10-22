@@ -1,40 +1,10 @@
 import React from 'react';
-import './myskills.css';
-import { FaHtml5, FaReact, FaNodeJs, FaWordpress, FaCss3Alt } from 'react-icons/fa';
-import { IoLogoJavascript } from 'react-icons/io';
 import ProgressBar from '../progressBar/ProgressBar';
+import { progress } from '../../data/data';
+import './myskills.css';
 
 const MySkills = () => {
-    const progress = [{
-        label: FaHtml5,
-        title: 'HTML',
-        value: 99
-    },
-    {
-        label: FaCss3Alt,
-        title: 'CSS',
-        value: 90
-    },
-    {
-        label: IoLogoJavascript,
-        title: 'Javascript',
-        value: 70
-    },
-    {
-        label: FaReact,
-        title: 'React',
-        value: 70
-    },
-    {
-        label: FaNodeJs,
-        title: 'NodeJs',
-        value: 70
-    },
-    {
-        label: FaWordpress,
-        title: 'wordPress',
-        value: 80
-    }]
+    
     return (
         <div className='my-skills'>
             <h2>My Skills</h2>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useReducer } from 'react';
 import { Button, Snackbar } from '@mui/material';
 import emailjs from '@emailjs/browser';
 import { FaTwitter, FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
@@ -9,9 +9,20 @@ import './contactMe.css';
 
 const ContactMe = () => {
     const form = useRef();
-    const [done, setDone] = useState(false);
-    const [isPending, setIsPending] = useState(false);
-    const [error, setError] = useState(null);
+
+    const reducer = (state, action) => {
+        switch (action.type) {
+            case 'SUCCESS':
+               return {...state, done: true, isPending: false} 
+        case 'PENDING' :
+            return { ...state, isPending: true}
+            case 'ERROR' :
+                return { ...state, error: true, isPending: false }
+            default:
+                return {state};
+        }
+    }
+    const [{done, isPending, error }, dispatch] = useReducer(reducer, {done: false, isPending: false, error: null})
     const [open, setOpen] = useState(false)
 
     const buttonStyles = {
@@ -34,19 +45,16 @@ const ContactMe = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
-        setIsPending(true)
+        dispatch({type: 'PENDING'})
 
         emailjs.sendForm(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY)
             .then((result) => {
                 console.log(result);
-                setDone(true);
-                setIsPending(false)
-                setError(false)
+               dispatch({type: 'SUCCESS'})
                 setOpen(true);
                 form.current.reset()
             }, (error) => {
-                setIsPending(false)
-                setError(true)
+                dispatch({ type: 'ERROR'})
                 setOpen(true);
                 setTimeout(()=>{
                     form.current.reset()  
