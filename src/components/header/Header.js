@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 import Navbar from './navbar/Navbar';
-import photo from './../../images/theBee.png';
+import photo from './../../images/portfolio-image.png';
 import { FaTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 
