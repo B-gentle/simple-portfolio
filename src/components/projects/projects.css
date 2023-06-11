@@ -13,11 +13,11 @@
     font-size: 16px;
 }
 
-.project-slider{
+.project-slider {
     width: 100%;
 }
 
-.project-slider .swiper-slider{
+.project-slider .swiper-slider {
     width: 80%;
     border: 2px solid red;
 }
@@ -27,26 +27,26 @@
     height: 20rem;
 }
 
-.project-slide-box img{
+.project-slide-box img {
     width: 100%;
     height: 14rem;
     margin-bottom: 2rem;
     object-fit: contain;
 }
 
-.project-slide-box a{
+.project-slide-box a {
     text-decoration: none;
     text-align: center;
     color: #000;
     border-bottom: 2px solid #D3DCF8;
 }
 
-.project-slide-box a:hover{
+.project-slide-box a:hover {
     font-size: 2rem;
 }
 
 @media screen and (max-width:580px) {
-    .projects{
+    .projects {
         padding: 20px 1rem 100px 1rem;
     }
 
@@ -54,11 +54,11 @@
         font-size: 38px;
     }
 
-    .project-slider .swiper-slider{
+    .project-slider .swiper-slider {
         width: 90%;
-        overflow: visible!important;
+        overflow: visible !important;
     }
-    
+
     .project-slide-box {
         width: 20rem;
         height: 20rem;
@@ -70,5 +70,24 @@
 
     .project-slide-box {
         text-decoration: none;
+    }
+
+    .swiper-button-prev {
+        position: absolute;
+        bottom: 0!important;
+        width: 10px!important;
+        border: 2px solid red;
+    }
+
+    .swiper-button-prev::after{
+        font-size: 1px;
+    }
+    .swiper-button-next::after{
+
+    }
+
+    .swiper-button-next {
+        width: 10px!important;
+        border: 2px solid red;
     }
 }

@@ -1,12 +1,9 @@
 nav div{
     display: flex;
     align-items: center;
+    margin-top: 1rem;
 }
 
-nav div h2{
-    font-weight: 800;
-    font-size: 1.88rem;
-}
 
 nav div ul{
     display: flex;    
@@ -39,7 +36,7 @@ nav div span{
         background-color: rgba(35, 81, 220, 0.6);
         transition: all 2s ease;
         height: 60vh;
-        padding: 1rem;
+        padding: 0.5rem;
         color: #FFFFFF;
     }
 
@@ -49,7 +46,7 @@ nav div span{
     }
 
     nav div ul.drop{
-        top: 67px;
+        top: 61px;
         left: 30%;
         transition: all 2.5s ease;
     }

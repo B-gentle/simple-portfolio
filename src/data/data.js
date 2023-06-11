@@ -1,5 +1,5 @@
 import koloz from '../images/koloz1.png';
-import cssa from '../images/cssa1.png';
+import rechargewise from '../images/myrechargewise.png';
 import childrenGlobal from '../images/childrenGlobal.png';
 import tomyvytas from '../images/tomyvytas1.png';
 
@@ -12,12 +12,12 @@ export const projectSlide = [
         src: 'https://koloz.netlify.app'
     },
     {
-        img: cssa,
-        src: 'https://cssabakaliki.netlify.app'
+        img: rechargewise,
+        src: 'https://myrechargewise.com'
     },
     {
         img: childrenGlobal,
-        src: 'https://childrensglobal.org'
+        src: 'https://children-global.org'
     },
     {
         img: tomyvytas,

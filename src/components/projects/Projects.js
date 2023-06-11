@@ -17,7 +17,7 @@ const Projects = () => {
         slidesPerView={1}
         spaceBetween={10}
         grabCursor={true}
-        navigation={true}
+        // navigation={true}
         pagination={{
           clickable: true,
         }}
@@ -40,7 +40,7 @@ const Projects = () => {
       >
         {
           projectSlide && projectSlide.map((project, id) =>
-            <SwiperSlide>
+            <SwiperSlide key={id}>
               <div className='project-slide-box'>
                 <img src={project.img} alt='' />
                 <a href={project.src}>Visit the website</a>
